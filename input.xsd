@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--  XML schema -->
+
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            targetNamespace="http://nure.ua/yeremenko/Practice7/entity"
+            xmlns:tns="http://nure.ua/yeremenko/Practice7/entity">
+
+    <xsd:element name="Planes">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Plane"
+                             type="tns:Plane" maxOccurs="unbounded"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    
+    <xsd:complexType name="Plane">
+        <xsd:sequence>
+            <xsd:element name="model" type="xsd:string"></xsd:element>
+            <xsd:element name="origin" type="xsd:string"></xsd:element>
+            <xsd:element name="chars" type="tns:PlaneChars"></xsd:element>
+            <xsd:element name="parameters" type="tns:Parameters"></xsd:element>
+            <xsd:element name="price" type="xsd:int"></xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="PlaneChars">
+        <xsd:sequence>
+            <xsd:element name="planeType" type="tns:PlaneType"/>
+            <xsd:element name="size">
+                <xsd:simpleType>
+                    <xsd:restriction base="xsd:int">
+                        <xsd:pattern value="(1|2)"/>
+                    </xsd:restriction>
+                </xsd:simpleType>
+            </xsd:element>
+            <xsd:element name="ammunition" type="xsd:boolean" default="false"/>
+            <xsd:element name="radar" type="xsd:boolean"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="WarChars">
+        <xsd:complexContent>
+            <xsd:extension base="tns:PlaneChars">
+                <xsd:sequence>
+                    <xsd:element name="rockets">
+                        <xsd:simpleType>
+                            <xsd:restriction base="xsd:int">
+                                <xsd:pattern value="(10|[0-9])"/>
+                            </xsd:restriction>
+                        </xsd:simpleType>
+                    </xsd:element>
+                </xsd:sequence>
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+
+    <xsd:simpleType name="PlaneType">
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="самолет поддержки"></xsd:enumeration>
+            <xsd:enumeration value="самолет сопровождения"></xsd:enumeration>
+            <xsd:enumeration value="истребитель"></xsd:enumeration>
+            <xsd:enumeration value="перехватчик"></xsd:enumeration>
+            <xsd:enumeration value="разведчик"></xsd:enumeration>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:complexType name="Parameters">
+        <xsd:sequence>
+            <xsd:element name="length" type="xsd:int"/>
+            <xsd:element name="width" type="xsd:int"/>
+            <xsd:element name="height" type="xsd:int"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+</xsd:schema>

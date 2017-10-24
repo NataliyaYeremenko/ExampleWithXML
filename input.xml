@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--  Input XML document. This XML is valid against Test.xsd XML schema-->
+
+<pr7:Planes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xmlns:pr7="http://nure.ua/yeremenko/Practice7/entity"
+            xsi:schemaLocation="http://nure.ua/yeremenko/Practice7/entity input.xsd">
+
+    <Plane>
+        <model>OP12120</model>
+        <origin>Ukraine</origin>
+        <chars xsi:type="pr7:PlaneChars">
+            <planeType>самолет сопровождения</planeType>
+            <size>1</size>
+            <ammunition>false</ammunition>
+            <radar>true</radar>
+        </chars>
+        <parameters>
+            <length>65</length>
+            <width>24</width>
+            <height>24</height>
+        </parameters>
+        <price>1234568785</price>
+    </Plane>
+
+    <Plane>
+        <model>KL1245</model>
+        <origin>USA</origin>
+        <chars xsi:type="pr7:WarChars">
+            <planeType>истребитель</planeType>
+            <size>2</size>
+            <ammunition>true</ammunition>
+            <radar>true</radar>
+            <rockets>10</rockets>
+        </chars>
+        <parameters>
+            <length>25</length>
+            <width>7</width>
+            <height>3</height>
+        </parameters>
+        <price>54155151</price>
+    </Plane>
+
+    <Plane>
+        <model>VB12522</model>
+        <origin>France</origin>
+        <chars xsi:type="pr7:PlaneChars">
+            <planeType>самолет поддержки</planeType>
+            <size>1</size>
+            <ammunition>false</ammunition>
+            <radar>false</radar>
+        </chars>
+        <parameters>
+            <length>125</length>
+            <width>34</width>
+            <height>24</height>
+        </parameters>
+        <price>234568785</price>
+    </Plane>
+
+</pr7:Planes>
